@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sekar Wastra, jual beli batik langsung dari pengrajin</title>
+<meta name="description" content="Jual beli batik tulis dan cap dari pengrajin Jawa. Putar kainnya dalam 3D sebelum dibeli.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --nila:#111a44; --nila-2:#1b2760; --nila-0:#0a1030; --soga:#8c4a28; --emas:#d8a542; --mori:#f1eee6;
+  --bg:#f1eee6; --bg-2:#e6e1d3; --ink:#161a33; --ink-2:#4b4f6e; --line:rgba(22,26,51,.16); --line-strong:rgba(22,26,51,.45);
+  --accent:#8c4a28; --btn-bg:#111a44; --btn-ink:#f1eee6; --field:#fbf9f3;
+  --serif:'Fraunces','Iowan Old Style','Palatino Linotype',Georgia,serif;
+  --sans:'Manrope',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0c1233; --bg-2:#111a44; --ink:#f1eee6; --ink-2:#b9bdd6; --line:rgba(241,238,230,.16); --line-strong:rgba(241,238,230,.5);
+    --accent:#e2b455; --btn-bg:#d8a542; --btn-ink:#111a44; --field:#141d4d;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0c1233; --bg-2:#111a44; --ink:#f1eee6; --ink-2:#b9bdd6; --line:rgba(241,238,230,.16); --line-strong:rgba(241,238,230,.5);
+  --accent:#e2b455; --btn-bg:#d8a542; --btn-ink:#111a44; --field:#141d4d;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{height:100%;scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 84px)}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:1rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+img,canvas,svg{max-width:100%}
+h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0;line-height:1.1;letter-spacing:-.015em}
+p{margin:0}
+a{color:inherit}
+button{font:inherit;color:inherit}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--emas);outline-offset:3px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* tombol */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;padding:.85em 1.4em;border-radius:3px;border:1.5px solid transparent;font-weight:700;font-size:.97rem;line-height:1.2;cursor:pointer;text-decoration:none;transition:background .2s,color .2s,border-color .2s}
+.btn-gold{background:var(--emas);color:var(--nila)}
+.btn-gold:hover{background:#e6b955}
+.btn-ghost{border-color:rgba(241,238,230,.5);color:var(--mori);background:transparent}
+.btn-ghost:hover{background:rgba(241,238,230,.1);border-color:var(--mori)}
+.btn-main{background:var(--btn-bg);color:var(--btn-ink)}
+.btn-main:hover{filter:brightness(1.12)}
+.btn-line{border-color:var(--line-strong);background:transparent;color:var(--ink)}
+.btn-line:hover{border-color:var(--ink);background:var(--line)}
+.btn-sm{padding:.55em .95em;font-size:.88rem}
+.btn[aria-disabled="true"]{opacity:.45;pointer-events:none}
+
+/* header */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:rgba(17,26,68,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--mori);border-bottom:1px solid rgba(241,238,230,.1)}
+.nav-in{max-width:1280px;margin:0 auto;padding:10px clamp(20px,4vw,48px);display:flex;align-items:center;gap:28px;flex-wrap:wrap;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--serif);font-weight:800;font-size:1.3rem;letter-spacing:-.01em}
+.links{display:flex;gap:26px;margin-left:auto;font-weight:500;font-size:.95rem}
+.links a{text-decoration:none;opacity:.85;padding:6px 0;border-bottom:1.5px solid transparent}
+.links a:hover{opacity:1;border-color:var(--emas)}
+.cart-btn{display:inline-flex;align-items:center;gap:8px;background:transparent;border:1.5px solid rgba(241,238,230,.4);border-radius:3px;padding:8px 12px;color:var(--mori);cursor:pointer}
+.cart-btn:hover{border-color:var(--emas)}
+.count{min-width:1.5em;height:1.5em;padding:0 .4em;border-radius:99px;background:var(--emas);color:var(--nila);font-size:.8rem;font-weight:800;display:inline-grid;place-items:center}
+.count.bump{animation:bump .35s ease}
+@keyframes bump{40%{transform:scale(1.35)}}
+@media (max-width:720px){
+  html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 110px)}
+  .nav-in{gap:10px 16px}
+  .cart-btn{margin-left:auto}
+  .links{order:3;width:100%;margin:0;gap:22px;overflow-x:auto;padding-bottom:4px}
+  .links a{white-space:nowrap}
+}
+
+/* hero */
+.hero{background:var(--nila);color:var(--mori);position:relative;overflow:hidden}
+.hero-in{max-width:1280px;margin:0 auto;padding:clamp(24px,4vw,48px) clamp(20px,4vw,48px) clamp(32px,5vw,64px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(8px,4vw,64px);align-items:center;min-height:min(820px,calc(100svh - 70px))}
+.hero h1{font-size:clamp(2.6rem,5.8vw,5.2rem);line-height:1.02;letter-spacing:-.025em;font-weight:600;margin-bottom:22px;max-width:11em}
+.lead{font-size:clamp(1.05rem,1.5vw,1.2rem);max-width:33em;color:rgba(241,238,230,.84);margin-bottom:30px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:34px}
+.pick-label{font-size:.92rem;color:rgba(241,238,230,.75);margin-bottom:10px}
+.motif-pick{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.motif-pick button{padding:0;border:2px solid transparent;border-radius:3px;background:none;cursor:pointer;line-height:0;outline-offset:4px;transition:border-color .2s,transform .2s}
+.motif-pick button canvas{width:46px;height:58px;display:block;border-radius:1px}
+.motif-pick button:hover{transform:translateY(-3px)}
+.motif-pick button[aria-pressed="true"]{border-color:var(--emas)}
+.motif-note{min-height:3.2em;max-width:30em;font-size:.98rem;color:rgba(241,238,230,.86)}
+.motif-note strong{font-family:var(--serif);font-size:1.15rem;color:var(--emas);font-weight:600;margin-right:.3em}
+.stage{position:relative;height:min(76vh,700px);min-height:420px;touch-action:pan-y;cursor:grab;border-radius:4px}
+.stage:active{cursor:grabbing}
+.stage::before{content:"";position:absolute;inset:4% 6%;background:radial-gradient(closest-side,rgba(216,165,66,.28),rgba(216,165,66,0));filter:blur(14px);pointer-events:none}
+.stage canvas{position:relative;width:100%;height:100%;display:block}
+.stage-hint{position:absolute;left:0;right:0;bottom:6px;text-align:center;font-size:.86rem;color:rgba(241,238,230,.7);pointer-events:none;transition:opacity .6s}
+.stage.used .stage-hint{opacity:0}
+.fallback-cloth{position:relative;display:block;margin:6% auto 0;width:min(70%,340px);height:auto;transform:perspective(900px) rotateY(-16deg) rotateX(4deg);box-shadow:20px 24px 40px rgba(0,0,0,.45)}
+@media (max-width:860px){
+  .hero-in{grid-template-columns:1fr;min-height:0}
+  .stage{height:64vh;min-height:380px;order:-1}
+  .hero h1{max-width:none}
+}
+
+/* bagian umum */
+section.sec{padding:clamp(56px,9vw,116px) 0}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,48px)}
+.sec-head h2{font-size:clamp(2rem,4.2vw,3.3rem);max-width:14em}
+.sec-head p{color:var(--ink-2);max-width:31em;margin-top:12px}
+
+/* koleksi */
+.bar{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-bottom:34px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{padding:.5em 1.05em;border:1.5px solid var(--line-strong);border-radius:99px;background:transparent;cursor:pointer;font-weight:500;font-size:.93rem;transition:background .2s,color .2s,border-color .2s}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--btn-bg);color:var(--btn-ink);border-color:var(--btn-bg)}
+.sort{margin-left:auto;display:flex;align-items:center;gap:10px;font-size:.93rem;color:var(--ink-2)}
+.sort select{background:var(--field);color:var(--ink);border:1.5px solid var(--line-strong);border-radius:3px;padding:.5em .8em;font:inherit;font-size:.93rem}
+.count-note{font-size:.9rem;color:var(--ink-2);margin:-14px 0 26px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:44px 30px}
+.tile{display:flex;flex-direction:column;gap:14px;perspective:900px}
+.tile-view{display:block;width:100%;background:none;border:0;padding:0;text-align:left;cursor:pointer}
+.tilt{display:block;position:relative;aspect-ratio:4/5;margin-bottom:14px;transform-style:preserve-3d;transition:transform .22s ease-out;box-shadow:0 22px 28px -22px rgba(10,16,48,.7);will-change:transform;overflow:hidden}
+.tilt canvas{display:block;width:100%;height:100%}
+.tilt::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,40%),rgba(255,255,255,.3),rgba(255,255,255,0) 55%);opacity:0;transition:opacity .25s;pointer-events:none}
+.tilt:hover::after{opacity:1}
+.tile-view:focus-visible .tilt{outline:2px solid var(--emas);outline-offset:4px}
+.badge{position:absolute;top:10px;left:10px;z-index:2;background:var(--emas);color:var(--nila);font-weight:800;font-size:.78rem;padding:.2em .6em;border-radius:2px}
+.tile-name{display:block;font-family:var(--serif);font-size:1.3rem;font-weight:600;line-height:1.15}
+.tile-sub{display:block;color:var(--ink-2);font-size:.92rem;margin-top:3px}
+.tile-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.price{font-weight:800;font-size:1.05rem}
+.empty{grid-column:1/-1;padding:40px 0;color:var(--ink-2)}
+
+/* motif */
+.motifs{background:var(--bg-2)}
+.motif-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.motif-row{display:grid;grid-template-columns:96px minmax(0,1fr) auto;gap:clamp(16px,3vw,40px);align-items:center;padding:24px 0;border-bottom:1px solid var(--line)}
+.motif-row canvas{width:96px;height:120px;display:block}
+.motif-row h3{font-size:clamp(1.6rem,3vw,2.4rem);margin-bottom:6px}
+.motif-row p{color:var(--ink-2);max-width:38em}
+@media (max-width:640px){
+  .motif-row{grid-template-columns:72px minmax(0,1fr)}
+  .motif-row canvas{width:72px;height:90px}
+  .motif-row .btn{grid-column:1/-1;justify-self:start}
+}
+
+/* cara belanja */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,4vw,56px);list-style:none;margin:0;padding:0}
+.steps li{border-top:2px solid var(--ink);padding-top:18px}
+.steps .n{font-family:var(--serif);font-size:3rem;font-weight:800;line-height:1;color:var(--accent);display:block;margin-bottom:10px}
+.steps h3{font-size:1.5rem;margin-bottom:8px}
+.steps p{color:var(--ink-2);max-width:26em}
+@media (max-width:760px){.steps{grid-template-columns:1fr}}
+
+/* jual */
+.sell{background:var(--nila);color:var(--mori)}
+.sell-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.2fr);gap:clamp(28px,5vw,72px);align-items:start}
+.sell h2{font-size:clamp(2rem,4.2vw,3.3rem);margin-bottom:16px}
+.sell .lead{margin-bottom:26px}
+.sell-points{list-style:none;padding:0;margin:0 0 28px;display:grid;gap:12px;color:rgba(241,238,230,.85)}
+.sell-points li{padding-left:22px;position:relative}
+.sell-points li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:9px;background:var(--emas);transform:rotate(45deg)}
+.preview{display:flex;gap:16px;align-items:flex-end;color:rgba(241,238,230,.75);font-size:.9rem}
+.preview canvas{width:120px;height:150px;display:block;box-shadow:0 18px 26px -18px rgba(0,0,0,.8)}
+form.sellform{display:grid;grid-template-columns:1fr 1fr;gap:18px 16px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
+.field label{font-weight:700;font-size:.92rem}
+.field input,.field select,.field textarea{background:rgba(241,238,230,.08);color:var(--mori);border:1.5px solid rgba(241,238,230,.3);border-radius:3px;padding:.7em .8em;font:inherit;width:100%}
+.field select option{color:#111a44}
+.field input::placeholder,.field textarea::placeholder{color:rgba(241,238,230,.5)}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--emas);outline:none;box-shadow:0 0 0 2px rgba(216,165,66,.35)}
+.form-note{grid-column:1/-1;font-size:.86rem;color:rgba(241,238,230,.7)}
+@media (max-width:860px){.sell-grid{grid-template-columns:1fr}}
+@media (max-width:520px){form.sellform{grid-template-columns:1fr}}
+
+footer.foot{background:var(--nila-0);color:rgba(241,238,230,.8);padding:44px 0 36px;font-size:.94rem}
+.foot-in{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-start}
+.foot .brand{color:var(--mori)}
+.foot p{max-width:30em;margin-top:10px}
+.foot nav{display:flex;gap:22px;flex-wrap:wrap}
+.foot nav a{text-decoration:none}
+.foot nav a:hover{color:var(--emas)}
+
+/* lapisan modal dan keranjang */
+.overlay{position:fixed;inset:0;z-index:60;background:rgba(8,12,36,.74);display:grid;place-items:center;padding:calc(env(safe-area-inset-top,0px) + 16px) 16px calc(env(safe-area-inset-bottom,0px) + 16px)}
+.modal{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);width:min(1040px,100%);max-height:100%;overflow:auto;background:var(--bg);color:var(--ink);border-radius:4px;animation:pop .28s ease-out}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.98)}}
+.modal-stage{position:relative;background:var(--nila);min-height:440px;height:100%}
+.modal-stage::before{content:"";position:absolute;inset:6%;background:radial-gradient(closest-side,rgba(216,165,66,.28),rgba(216,165,66,0));pointer-events:none}
+.modal-stage canvas{position:relative;width:100%;height:100%;min-height:440px;display:block;cursor:grab;touch-action:pan-y}
+.modal-stage .hint{position:absolute;top:12px;left:0;right:0;text-align:center;color:rgba(241,238,230,.75);font-size:.86rem;pointer-events:none}
+.wind{position:absolute;left:16px;right:16px;bottom:14px;display:flex;align-items:center;gap:12px;color:var(--mori);font-size:.88rem}
+.wind input{flex:1;accent-color:var(--emas)}
+.modal-body{padding:clamp(22px,3vw,40px);display:flex;flex-direction:column;gap:14px}
+.modal-body h3{font-size:clamp(1.8rem,3vw,2.5rem);padding-right:40px}
+.modal-body .seller{color:var(--ink-2)}
+.modal-body .big{font-size:1.5rem}
+.specs{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin:4px 0;font-size:.95rem}
+.specs dt{color:var(--ink-2)}
+.specs dd{margin:0;font-weight:500}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:10px}
+.close{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--line-strong);background:var(--bg);color:var(--ink);cursor:pointer;font-size:1.4rem;line-height:1;display:grid;place-items:center;z-index:3}
+.close:hover{border-color:var(--ink)}
+@media (max-width:820px){
+  .modal{grid-template-columns:1fr}
+  .modal-stage,.modal-stage canvas{min-height:380px;height:380px}
+}
+.cart-ov{place-items:stretch end;padding:0}
+.drawer{width:min(430px,100%);height:100%;background:var(--bg);color:var(--ink);display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);animation:slidein .3s ease-out}
+@keyframes slidein{from{transform:translateX(40px);opacity:0}}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--line)}
+.drawer-head h3{font-size:1.6rem}
+.drawer-head .close{position:static}
+.cart-body{flex:1;overflow:auto;padding:8px 20px}
+.cart-empty{padding:36px 0;color:var(--ink-2);display:grid;gap:16px;justify-items:start}
+.cart-item{display:grid;grid-template-columns:64px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+.cart-item canvas{width:64px;height:80px;display:block}
+.cart-item h4{font-family:var(--serif);font-size:1.12rem;font-weight:600;margin:0 0 2px}
+.cart-item .sub{color:var(--ink-2);font-size:.88rem}
+.qty{display:flex;align-items:center;gap:10px;margin-top:8px;flex-wrap:wrap}
+.qty button{width:30px;height:30px;border-radius:3px;border:1.5px solid var(--line-strong);background:transparent;cursor:pointer;font-weight:700}
+.qty button:hover{border-color:var(--ink)}
+.qty .rm{width:auto;padding:0 .6em;border:0;text-decoration:underline;font-weight:500;color:var(--ink-2)}
+.cart-foot{padding:16px 20px 20px;border-top:1px solid var(--line);display:grid;gap:12px}
+.total{display:flex;justify-content:space-between;align-items:baseline;font-size:1.05rem}
+.total strong{font-size:1.4rem}
+.small{font-size:.86rem;color:var(--ink-2)}
+.toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 22px);transform:translate(-50%,20px);z-index:80;background:var(--ink);color:var(--bg);padding:.75em 1.1em;border-radius:3px;display:flex;gap:14px;align-items:center;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;max-width:calc(100% - 32px)}
+.toast.on{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+.toast button{background:none;border:0;text-decoration:underline;font-weight:700;cursor:pointer;color:inherit;padding:0}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#atas" aria-label="Sekar Wastra, kembali ke atas">
+      <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><g fill="none" stroke="#d8a542" stroke-width="1.6"><ellipse cx="16" cy="9" rx="3.6" ry="6.4"/><ellipse cx="16" cy="23" rx="3.6" ry="6.4"/><ellipse cx="9" cy="16" rx="6.4" ry="3.6"/><ellipse cx="23" cy="16" rx="6.4" ry="3.6"/></g></svg>
+      <span>Sekar Wastra</span>
+    </a>
+    <nav class="links" aria-label="Menu utama">
+      <a href="#koleksi">Koleksi</a>
+      <a href="#motif">Motif</a>
+      <a href="#cara">Cara belanja</a>
+      <a href="#jual">Jual batik</a>
+    </nav>
+    <button class="cart-btn" id="cartBtn" type="button" aria-label="Buka keranjang, kosong">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5.5 8h13l-1.1 12h-10.8L5.5 8z"/><path d="M9 8V7a3 3 0 016 0v1"/></svg>
+      <span class="count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="atas">
+    <div class="hero-in">
+      <div class="hero-copy">
+        <h1>Batik yang bisa Anda putar sebelum dibeli</h1>
+        <p class="lead">Sekar Wastra mempertemukan pembeli dengan pengrajin dan penjual batik dari Jawa. Lihat kainnya bergerak dalam 3D, pilih yang cocok, lalu pesan lewat WhatsApp.</p>
+        <div class="hero-cta">
+          <a class="btn btn-gold" href="#koleksi">Belanja batik</a>
+          <a class="btn btn-ghost" href="#jual">Jual batik Anda</a>
+        </div>
+        <p class="pick-label" id="pickLabel">Ganti motif pada kain:</p>
+        <div class="motif-pick" id="motifPick" role="group" aria-labelledby="pickLabel"></div>
+        <p class="motif-note" id="motifNote" aria-live="polite"></p>
+      </div>
+      <div class="stage" id="stage">
+        <canvas id="heroCanvas" role="img" aria-label="Kain batik 3D yang tertiup angin. Seret untuk memutar."></canvas>
+        <p class="stage-hint">Seret atau gerakkan kursor di atas kain</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="koleksi">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>Koleksi dari pengrajin dan penjual</h2>
+          <p>Arahkan kursor untuk memiringkan kain. Klik untuk melihatnya bergerak dalam 3D.</p>
+        </div>
+      </div>
+      <div class="bar">
+        <div class="chips" id="chips" role="group" aria-label="Filter jenis batik">
+          <button class="chip" type="button" data-cat="Semua" aria-pressed="true">Semua</button>
+          <button class="chip" type="button" data-cat="Kain" aria-pressed="false">Kain</button>
+          <button class="chip" type="button" data-cat="Pakaian" aria-pressed="false">Pakaian</button>
+          <button class="chip" type="button" data-cat="Aksesori" aria-pressed="false">Aksesori</button>
+        </div>
+        <label class="sort">Urutkan
+          <select id="sort">
+            <option value="pilihan">Pilihan kami</option>
+            <option value="murah">Harga terendah</option>
+            <option value="mahal">Harga tertinggi</option>
+          </select>
+        </label>
+      </div>
+      <p class="count-note" id="countNote" aria-live="polite"></p>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section class="sec motifs" id="motif">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>Kenali motifnya</h2>
+          <p>Setiap motif punya cerita. Pilih satu untuk melihatnya di kain 3D di bagian atas.</p>
+        </div>
+      </div>
+      <ul class="motif-list" id="motifList"></ul>
+    </div>
+  </section>
+
+  <section class="sec" id="cara">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><h2>Cara belanja</h2></div>
+      </div>
+      <ol class="steps">
+        <li>
+          <span class="n" aria-hidden="true">1</span>
+          <h3>Pilih dan putar kainnya</h3>
+          <p>Buka batik yang Anda suka, putar dalam 3D, dan periksa motif, bahan, serta ukurannya.</p>
+        </li>
+        <li>
+          <span class="n" aria-hidden="true">2</span>
+          <h3>Kirim pesanan lewat WhatsApp</h3>
+          <p>Masukkan ke keranjang, lalu kirim daftar pesanan ke penjual. Ongkir dihitung sesuai alamat Anda.</p>
+        </li>
+        <li>
+          <span class="n" aria-hidden="true">3</span>
+          <h3>Bayar dan tunggu kiriman</h3>
+          <p>Penjual mengonfirmasi pembayaran, mengemas batik, lalu mengirimnya ke rumah Anda.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec sell" id="jual">
+    <div class="wrap sell-grid">
+      <div>
+        <h2>Punya batik untuk dijual?</h2>
+        <p class="lead">Isi detail batik Anda, pilih motifnya, dan batik langsung tampil di koleksi dengan tampilan 3D.</p>
+        <ul class="sell-points">
+          <li>Tampil di koleksi begitu formulir dikirim</li>
+          <li>Pembeli memesan langsung lewat WhatsApp</li>
+          <li>Anda menentukan harga sendiri</li>
+        </ul>
+        <div class="preview">
+          <canvas id="prevCanvas" width="240" height="300" role="img" aria-label="Pratinjau motif yang dipilih"></canvas>
+          <span>Pratinjau motif yang dipilih</span>
+        </div>
+      </div>
+      <form class="sellform" id="sellForm">
+        <div class="field full"><label for="fNama">Nama batik</label><input id="fNama" name="nama" required maxlength="40" placeholder="Contoh: Parang Barong Hitam"></div>
+        <div class="field"><label for="fToko">Nama toko</label><input id="fToko" name="toko" required maxlength="40" placeholder="Nama toko Anda"></div>
+        <div class="field"><label for="fKota">Kota</label><input id="fKota" name="kota" required maxlength="30" placeholder="Contoh: Solo"></div>
+        <div class="field"><label for="fKat">Jenis</label>
+          <select id="fKat" name="kat"><option>Kain</option><option>Pakaian</option><option>Aksesori</option></select></div>
+        <div class="field"><label for="fPola">Motif</label>
+          <select id="fPola" name="pola"></select></div>
+        <div class="field"><label for="fTeknik">Teknik</label>
+          <select id="fTeknik" name="teknik"><option>Batik tulis</option><option>Batik cap</option><option>Tulis dan cap</option></select></div>
+        <div class="field"><label for="fHarga">Harga (Rp)</label><input id="fHarga" name="harga" type="number" min="10000" step="1000" required inputmode="numeric" placeholder="350000"></div>
+        <div class="field full"><label for="fDesc">Deskripsi singkat (boleh dikosongkan)</label><textarea id="fDesc" name="desc" rows="3" maxlength="200" placeholder="Bahan, ukuran, atau cerita di balik batiknya"></textarea></div>
+        <div class="full"><button class="btn btn-gold" type="submit">Tampilkan di koleksi</button></div>
+        <p class="form-note">Batik yang Anda tambahkan tersimpan di perangkat ini.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div>
+      <a class="brand" href="#atas"><span>Sekar Wastra</span></a>
+      <p>Tempat jual beli batik Nusantara. Lihat motifnya dalam 3D, pesan langsung dari penjual.</p>
+    </div>
+    <nav aria-label="Tautan kaki">
+      <a href="#koleksi">Koleksi</a>
+      <a href="#motif">Motif</a>
+      <a href="#cara">Cara belanja</a>
+      <a href="#jual">Jual batik</a>
+    </nav>
+  </div>
+</footer>
+
+<!-- Detail produk -->
+<div class="overlay" id="productOv" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="pmName">
+    <div class="modal-stage" id="modalStage">
+      <p class="hint">Seret kain untuk memutar</p>
+      <label class="wind">Tiupan angin <input type="range" id="windRange" min="0" max="2" step="0.05" value="1"></label>
+    </div>
+    <div class="modal-body">
+      <button class="close" type="button" data-close aria-label="Tutup">&times;</button>
+      <h3 id="pmName"></h3>
+      <p class="seller" id="pmSeller"></p>
+      <p class="price big" id="pmPrice"></p>
+      <p id="pmDesc"></p>
+      <dl class="specs" id="pmSpecs"></dl>
+      <div class="actions">
+        <button class="btn btn-main" type="button" id="pmAdd">Masukkan keranjang</button>
+        <a class="btn btn-line" id="pmAsk" target="_blank" rel="noopener">Tanya penjual</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Keranjang -->
+<div class="overlay cart-ov" id="cartOv" hidden>
+  <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="drawer-head">
+      <h3 id="cartTitle">Keranjang</h3>
+      <button class="close" type="button" data-close aria-label="Tutup keranjang">&times;</button>
+    </div>
+    <div class="cart-body" id="cartBody"></div>
+    <div class="cart-foot" id="cartFoot">
+      <div class="total"><span>Total</span><strong id="cartTotal">Rp 0</strong></div>
+      <a class="btn btn-main" id="checkout" target="_blank" rel="noopener">Pesan lewat WhatsApp</a>
+      <p class="small">Penjual akan mengonfirmasi ongkir dan cara pembayaran lewat WhatsApp.</p>
+    </div>
+  </aside>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+'use strict';
+
+/* ====== Pengaturan ====== */
+// Ganti dengan nomor WhatsApp toko Anda (format internasional, tanpa tanda +)
+var WA_NUMBER = '6281234567890';
+
+var RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var $ = function(s, r){ return (r || document).querySelector(s); };
+var rp = function(n){ return 'Rp ' + new Intl.NumberFormat('id-ID').format(n); };
+var esc = function(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); };
+var clamp = function(v,a,b){ return Math.max(a, Math.min(b, v)); };
+var store = {
+  get: function(k,d){ try{ var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; }catch(e){ return d; } },
+  set: function(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+};
+
+/* ====== Palet dan motif (digambar dengan canvas) ====== */
+var PAL = {
+  nila:    {bg:'#0f1a4d', mid:'#1c2c78', line:'#e2b455', acc:'#f1eee6', hb:'#0a1238', hf:'#e2b455'},
+  soga:    {bg:'#3e1f0f', mid:'#7a4022', line:'#f0d29a', acc:'#e2b455', hb:'#25120a', hf:'#f0d29a'},
+  mendung: {bg:'#6e1a1c', mid:'#8b2528', line:'#0d1846', acc:'#f1eee6', hb:'#0d1846', hf:'#f1eee6',
+            cloud:['#0d1846','#173080','#2b4aa6','#5c7cc9','#a9bce6']},
+  malam:   {bg:'#14100d', mid:'#231a14', line:'#d8a542', acc:'#f1eee6', hb:'#0a0806', hf:'#d8a542'},
+  lasem:   {bg:'#efe6d2', mid:'#c8362d', line:'#7a1f1c', acc:'#1b2b6b', leaf:'#1b2b6b', hb:'#1b2b6b', hf:'#efe6d2'}
+};
+
+var MOTIF = {
+  kawung:  {nama:'Kawung', pal:'nila', draw:kawung,
+            arti:'Bulatan yang saling bertumpuk, dibaca sebagai lambang kesucian dan keadilan.'},
+  parang:  {nama:'Parang', pal:'soga', draw:parang,
+            arti:'Diagonal berombak yang tak putus, melambangkan semangat yang terus maju.'},
+  mendung: {nama:'Mega Mendung', pal:'mendung', draw:mendung,
+            arti:'Awan berlapis khas Cirebon, mengajarkan kesabaran dan pikiran yang tenang.'},
+  truntum: {nama:'Truntum', pal:'malam', draw:truntum,
+            arti:'Taburan bintang kecil tentang cinta yang tumbuh kembali. Sering dipakai orang tua mempelai.'},
+  lasem:   {nama:'Kembang Lasem', pal:'lasem', draw:lasem,
+            arti:'Bunga dan sulur bergaya pesisir dengan merah khas Lasem.'}
+};
+
+function fillBg(ctx,w,h,c){ ctx.fillStyle = c; ctx.fillRect(0,0,w,h); }
+
+function kawung(ctx,w,h,p){
+  fillBg(ctx,w,h,p.bg);
+  var s = w/3.6, lw = Math.max(1.4, w/300);
+  ctx.lineWidth = lw; ctx.strokeStyle = p.line;
+  function flower(cx,cy,fillC){
+    for(var k=0;k<4;k++){
+      var a = k*Math.PI/2, ox = Math.cos(a)*s*0.27, oy = Math.sin(a)*s*0.27;
+      ctx.beginPath(); ctx.ellipse(cx+ox, cy+oy, s*0.27, s*0.15, a, 0, Math.PI*2);
+      ctx.fillStyle = fillC; ctx.fill(); ctx.stroke();
+      ctx.fillStyle = p.line;
+      for(var d=-1; d<=1; d++){
+        var dx = cx + Math.cos(a)*(s*0.27 + d*s*0.12), dy = cy + Math.sin(a)*(s*0.27 + d*s*0.12);
+        ctx.beginPath(); ctx.arc(dx,dy,lw*1.1,0,Math.PI*2); ctx.fill();
+      }
+    }
+    ctx.beginPath(); ctx.arc(cx,cy,s*0.05,0,Math.PI*2); ctx.fillStyle = p.acc; ctx.fill(); ctx.stroke();
+  }
+  var cols = Math.ceil(w/s)+2, rows = Math.ceil(h/s)+2;
+  for(var j=-1;j<rows;j++) for(var i=-1;i<cols;i++) flower(i*s, j*s, p.mid);
+  for(j=-1;j<rows;j++) for(i=-1;i<cols;i++) flower((i+0.5)*s, (j+0.5)*s, p.bg);
+}
+
+function parang(ctx,w,h,p){
+  fillBg(ctx,w,h,p.bg);
+  ctx.save(); ctx.translate(w/2, h/2); ctx.rotate(-Math.PI/4.6);
+  var L = Math.hypot(w,h)*1.15, bh = w/6.2, wl = bh*1.9, amp = bh*0.34, lw = Math.max(1.4, w/280);
+  function edge(x,rr){ return rr*bh + Math.sin((x/wl + rr*0.25)*Math.PI*2)*amp; }
+  var n = Math.ceil(L/bh)+2;
+  for(var r=-n; r<n; r++){
+    ctx.beginPath();
+    var x;
+    for(x=-L/2; x<=L/2; x+=4){ var y = edge(x,r); if(x===-L/2) ctx.moveTo(x,y); else ctx.lineTo(x,y); }
+    for(x=L/2; x>=-L/2; x-=4){ ctx.lineTo(x, edge(x,r+1)); }
+    ctx.closePath();
+    ctx.fillStyle = (Math.abs(r)%2===0) ? p.mid : p.bg; ctx.fill();
+    ctx.strokeStyle = p.line; ctx.lineWidth = lw; ctx.stroke();
+    ctx.fillStyle = p.acc;
+    for(x=-L/2+wl/4; x<L/2; x+=wl/2){
+      var yy = (edge(x,r)+edge(x,r+1))/2;
+      ctx.beginPath(); ctx.arc(x,yy,bh*0.08,0,Math.PI*2); ctx.fill();
+    }
+  }
+  ctx.restore();
+}
+
+function mendung(ctx,w,h,p){
+  fillBg(ctx,w,h,p.bg);
+  var R = w*0.27, lw = Math.max(1.4, w/300);
+  ctx.lineJoin = 'round'; ctx.strokeStyle = p.line;
+  function cloud(cx,cy,r,f){
+    var n = p.cloud.length;
+    for(var k=0;k<n;k++){
+      var rr = r*(1-k*0.15), ox = cx + f*k*r*0.06, oy = cy + k*r*0.05;
+      ctx.beginPath();
+      var lobes = 5;
+      for(var i=0;i<lobes;i++){
+        var a = Math.PI*(1 + i/(lobes-1));
+        var lx = ox + Math.cos(a)*rr*0.62, ly = oy + Math.sin(a)*rr*0.5, lr = rr*0.36;
+        ctx.moveTo(lx+lr, ly); ctx.arc(lx,ly,lr,0,Math.PI*2);
+      }
+      ctx.rect(ox-rr*0.98, oy-rr*0.02, rr*1.96, rr*0.34);
+      var ex = ox + f*rr*1.15, ey = oy + rr*0.14, rx = rr*0.42;
+      ctx.moveTo(ex+rx, ey); ctx.ellipse(ex,ey,rx,rr*0.2,0,0,Math.PI*2);
+      ctx.lineWidth = lw*2.4; ctx.stroke();
+      ctx.fillStyle = p.cloud[k]; ctx.fill();
+    }
+  }
+  var j = 0;
+  for(var y=R*0.55; y<h+R; y+=R*1.5, j++){
+    var f = (j%2) ? -1 : 1;
+    for(var x=-R*0.4 + (j%2 ? R*1.3 : 0); x<w+R; x+=R*2.6) cloud(x,y,R,f);
+  }
+}
+
+function truntum(ctx,w,h,p){
+  fillBg(ctx,w,h,p.bg);
+  var s = w/6.5, r = s*0.38;
+  for(var j=-1; j<h/(s*0.9)+1; j++) for(var i=-1; i<9; i++){
+    var cx = (i + (j%2 ? 0.5 : 0))*s, cy = j*s*0.9 + s*0.5;
+    ctx.fillStyle = p.line;
+    for(var k=0;k<8;k++){
+      var a = k*Math.PI/4, big = (k%2===0), d = r*(big?0.55:0.4);
+      ctx.beginPath(); ctx.ellipse(cx+Math.cos(a)*d, cy+Math.sin(a)*d, r*(big?0.5:0.32), r*0.07, a, 0, Math.PI*2); ctx.fill();
+    }
+    ctx.fillStyle = p.acc; ctx.beginPath(); ctx.arc(cx,cy,r*0.1,0,Math.PI*2); ctx.fill();
+    ctx.globalAlpha = 0.65; ctx.fillStyle = p.line;
+    [[-1,-1],[1,-1],[-1,1],[1,1]].forEach(function(q){
+      ctx.beginPath(); ctx.arc(cx+q[0]*s*0.5, cy+q[1]*s*0.45, r*0.06, 0, Math.PI*2); ctx.fill();
+    });
+    ctx.globalAlpha = 1;
+  }
+}
+
+function lasem(ctx,w,h,p){
+  fillBg(ctx,w,h,p.bg);
+  var s = w/2.4, lw = Math.max(1.4, w/280), pts = [];
+  for(var j=-1; j<h/(s*0.85)+1; j++) for(var i=-1; i<4; i++) pts.push([(i + (j%2 ? 0.5 : 0))*s + s*0.25, j*s*0.85 + s*0.4]);
+  ctx.strokeStyle = p.leaf; ctx.lineWidth = lw*2.2; ctx.lineCap = 'round';
+  pts.forEach(function(q){
+    var x = q[0], y = q[1];
+    ctx.beginPath(); ctx.moveTo(x,y); ctx.quadraticCurveTo(x+s*0.32, y+s*0.3, x+s*0.1, y+s*0.62); ctx.stroke();
+    ctx.fillStyle = p.leaf;
+    ctx.beginPath(); ctx.ellipse(x+s*0.22, y+s*0.36, s*0.16, s*0.06, 0.6, 0, Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.ellipse(x+s*0.02, y+s*0.52, s*0.16, s*0.06, -0.5, 0, Math.PI*2); ctx.fill();
+  });
+  ctx.lineWidth = lw;
+  pts.forEach(function(q){
+    var x = q[0], y = q[1], r = s*0.26;
+    ctx.strokeStyle = p.line;
+    for(var k=0;k<5;k++){
+      var a = k*Math.PI*2/5 - Math.PI/2;
+      ctx.beginPath(); ctx.ellipse(x+Math.cos(a)*r*0.62, y+Math.sin(a)*r*0.62, r*0.62, r*0.4, a, 0, Math.PI*2);
+      ctx.fillStyle = p.mid; ctx.fill(); ctx.stroke();
+      ctx.fillStyle = p.bg;
+      ctx.beginPath(); ctx.arc(x+Math.cos(a)*r*0.95, y+Math.sin(a)*r*0.95, lw*1.1, 0, Math.PI*2); ctx.fill();
+    }
+    ctx.beginPath(); ctx.arc(x,y,r*0.22,0,Math.PI*2); ctx.fillStyle = p.leaf; ctx.fill();
+    ctx.beginPath(); ctx.arc(x+r*1.6, y+r*0.5, r*0.16, 0, Math.PI*2); ctx.fillStyle = p.mid; ctx.fill(); ctx.stroke();
+  });
+}
+
+function hem(ctx,w,h,p,top){
+  ctx.save();
+  if(top){ ctx.translate(0,h); ctx.scale(1,-1); }
+  var bh = h*0.055, tw = w/16;
+  ctx.fillStyle = p.hb; ctx.fillRect(0, h-bh*1.6, w, bh*1.6);
+  ctx.fillStyle = p.hf;
+  for(var x=0; x<w; x+=tw){
+    ctx.beginPath(); ctx.moveTo(x, h-bh*0.2); ctx.lineTo(x+tw/2, h-bh*1.4); ctx.lineTo(x+tw, h-bh*0.2); ctx.closePath(); ctx.fill();
+  }
+  ctx.fillRect(0, h-bh*1.6, w, Math.max(2, h*0.003));
+  ctx.restore();
+}
+function grain(ctx,w,h){
+  ctx.save();
+  ctx.globalAlpha = 0.06; ctx.fillStyle = '#000';
+  for(var y=0;y<h;y+=3) ctx.fillRect(0,y,w,1);
+  ctx.globalAlpha = 0.035; ctx.fillStyle = '#fff';
+  for(var x=0;x<w;x+=3) ctx.fillRect(x,0,1,h);
+  ctx.restore();
+}
+
+var paintCache = {};
+function getPaint(motif, palKey, w, h, top){
+  var key = [motif,palKey,w,h,top?1:0].join('|');
+  if(paintCache[key]) return paintCache[key];
+  var c = document.createElement('canvas'); c.width = w; c.height = h;
+  var ctx = c.getContext('2d'), p = PAL[palKey];
+  MOTIF[motif].draw(ctx,w,h,p);
+  hem(ctx,w,h,p,false);
+  if(top) hem(ctx,w,h,p,true);
+  grain(ctx,w,h);
+  paintCache[key] = c;
+  return c;
+}
+function clothTex(motif, palKey){ return getPaint(motif, palKey || MOTIF[motif].pal, 1024, 1344, true); }
+function drawTo(canvas, src){ var ctx = canvas.getContext('2d'); ctx.drawImage(src, 0, 0, canvas.width, canvas.height); }
+
+/* ====== Kain 3D (Three.js) ====== */
+function Cloth(canvas, opts){
+  opts = opts || {};
+  var self = this;
+  this.canvas = canvas; this.W = 3.1; this.H = 4.1; this.hover = !!opts.hover;
+  this.wind = 1; this.boost = 0; this.tRotY = 0; this.tRotX = 0; this.rotY = 0; this.rotX = 0;
+  this.t = 1.7; this.running = false; this.last = 0; this.interacted = false; this.unfurl = RM ? 1 : 0;
+  this.onInteract = opts.onInteract || function(){};
+
+  var r = this.renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, alpha:true});
+  r.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  r.outputEncoding = THREE.sRGBEncoding;
+  this.scene = new THREE.Scene();
+  this.camera = new THREE.PerspectiveCamera(30, 1, 0.1, 60);
+  this.scene.add(new THREE.AmbientLight(0xffffff, 0.66));
+  var key = new THREE.DirectionalLight(0xfff0d0, 0.95); key.position.set(3.5,4,6); this.scene.add(key);
+  var rim = new THREE.DirectionalLight(0x8fa4ff, 0.35); rim.position.set(-4,1,-3); this.scene.add(rim);
+  this.group = new THREE.Group(); this.scene.add(this.group);
+
+  this.geo = new THREE.PlaneGeometry(this.W, this.H, 56, 76);
+  this.base = this.geo.attributes.position.array.slice();
+  this.mat = new THREE.MeshPhongMaterial({side:THREE.DoubleSide, shininess:18, specular:0x2a2a2a});
+  this.mesh = new THREE.Mesh(this.geo, this.mat); this.group.add(this.mesh);
+
+  this.extra = [];
+  var gold = new THREE.MeshPhongMaterial({color:0xd8a542, shininess:80, specular:0xffe9b0});
+  var rodGeo = new THREE.CylinderGeometry(0.065,0.065,this.W+0.5,20);
+  var rod = new THREE.Mesh(rodGeo, gold); rod.rotation.z = Math.PI/2; rod.position.y = this.H/2 + 0.02; this.group.add(rod);
+  var ballGeo = new THREE.SphereGeometry(0.13,16,12);
+  [-1,1].forEach(function(sg){ var b = new THREE.Mesh(ballGeo, gold); b.position.set(sg*(self.W/2+0.27), self.H/2+0.02, 0); self.group.add(b); });
+  this.extra.push(gold, rodGeo, ballGeo);
+
+  this.frame = function(now){
+    if(!self.running) return;
+    requestAnimationFrame(self.frame);
+    var dt = Math.min(0.05, (now - self.last)/1000 || 0.016); self.last = now;
+    if(!RM) self.t += dt;
+    if(self.unfurl < 1) self.unfurl = Math.min(1, self.unfurl + dt/(opts.unfurlTime || 1.8));
+    self.boost *= Math.pow(0.05, dt);
+    var idle = (self.interacted || RM) ? 0 : Math.sin(self.t*0.35)*0.18;
+    var k = Math.min(1, dt*5);
+    self.rotY += (self.tRotY + idle - self.rotY)*k;
+    self.rotX += (self.tRotX - self.rotX)*k;
+    self.group.rotation.set(self.rotX, self.rotY, 0);
+    self.update();
+    self.renderer.render(self.scene, self.camera);
+  };
+
+  this.bindPointer(canvas.parentNode === null ? canvas : (opts.pointerEl || canvas));
+  this.ro = new ResizeObserver(function(){ self.resize(); }); this.ro.observe(canvas);
+  this.io = new IntersectionObserver(function(es){ if(es[0].isIntersecting) self.start(); else self.stop(); });
+  this.io.observe(canvas);
+  this.resize();
+}
+Cloth.prototype.easeU = function(){ var u = this.unfurl; return 1 - Math.pow(1-u, 3); };
+Cloth.prototype.update = function(){
+  var pos = this.geo.attributes.position, a = pos.array, b = this.base, H = this.H;
+  var W = this.wind + this.boost, u = this.easeU(), t = this.t;
+  for(var i=0;i<a.length;i+=3){
+    var x = b[i], y = b[i+1];
+    var k = (H/2 - y)/H;
+    var f = 0.03 + k*k*0.95;
+    var amp = 0.34*W*f*(0.25 + 0.75*u);
+    var z = amp*(Math.sin(x*1.7 + t*1.45 + y*0.8)*0.62 + Math.sin(x*3.4 - t*1.05 + y*1.5)*0.28 + Math.sin(y*2.1 + t*0.7)*0.18);
+    a[i] = x + amp*0.10*Math.sin(t*0.9 + y*1.3);
+    a[i+1] = (H/2 - (H/2 - y)*u) - z*z*0.35;
+    a[i+2] = z;
+  }
+  pos.needsUpdate = true;
+  this.geo.computeVertexNormals();
+};
+Cloth.prototype.resize = function(){
+  var c = this.canvas, w = c.clientWidth, h = c.clientHeight;
+  if(!w || !h) return;
+  this.renderer.setSize(w, h, false);
+  var asp = w/h; this.camera.aspect = asp;
+  var tv = Math.tan(THREE.MathUtils.degToRad(this.camera.fov/2));
+  var dV = (this.H/2*1.16)/tv, dH = (this.W/2*1.3)/(tv*asp);
+  this.camera.position.set(0, -0.05, Math.max(dV, dH));
+  this.camera.lookAt(0,0,0);
+  this.camera.updateProjectionMatrix();
+};
+Cloth.prototype.start = function(){
+  if(this.running) return;
+  this.running = true; this.last = performance.now();
+  requestAnimationFrame(this.frame);
+};
+Cloth.prototype.stop = function(){ this.running = false; };
+Cloth.prototype.setTexture = function(c){
+  var tex = new THREE.CanvasTexture(c);
+  tex.encoding = THREE.sRGBEncoding;
+  tex.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
+  if(this.mat.map) this.mat.map.dispose();
+  this.mat.map = tex; this.mat.needsUpdate = true;
+};
+Cloth.prototype.swap = function(c){
+  var self = this;
+  this.boost = 1.6;
+  setTimeout(function(){ self.setTexture(c); }, RM ? 0 : 260);
+};
+Cloth.prototype.bindPointer = function(el){
+  var self = this, dragging = false, sx = 0, sy = 0, ry0 = 0, rx0 = 0;
+  function used(){ if(!self.interacted){ self.interacted = true; self.onInteract(); } }
+  el.addEventListener('pointerdown', function(e){
+    dragging = true; sx = e.clientX; sy = e.clientY; ry0 = self.tRotY; rx0 = self.tRotX; used();
+    try{ el.setPointerCapture(e.pointerId); }catch(err){}
+  });
+  el.addEventListener('pointermove', function(e){
+    if(dragging){
+      self.tRotY = clamp(ry0 + (e.clientX - sx)*0.008, -1.25, 1.25);
+      self.tRotX = clamp(rx0 + (e.clientY - sy)*0.004, -0.4, 0.4);
+    } else if(self.hover && e.pointerType === 'mouse'){
+      var b = el.getBoundingClientRect();
+      self.tRotY = ((e.clientX - b.left)/b.width - 0.5)*0.8;
+      self.tRotX = ((e.clientY - b.top)/b.height - 0.5)*0.25;
+      used();
+    }
+  });
+  function up(){ dragging = false; }
+  el.addEventListener('pointerup', up); el.addEventListener('pointercancel', up);
+  el.tabIndex = 0;
+  el.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowLeft'){ self.tRotY = clamp(self.tRotY - 0.25, -1.25, 1.25); used(); e.preventDefault(); }
+    if(e.key === 'ArrowRight'){ self.tRotY = clamp(self.tRotY + 0.25, -1.25, 1.25); used(); e.preventDefault(); }
+  });
+};
+Cloth.prototype.dispose = function(){
+  this.stop();
+  if(this.io) this.io.disconnect();
+  if(this.ro) this.ro.disconnect();
+  this.geo.dispose();
+  if(this.mat.map) this.mat.map.dispose();
+  this.mat.dispose();
+  this.extra.forEach(function(o){ if(o.dispose) o.dispose(); });
+  this.renderer.dispose();
+  if(this.renderer.forceContextLoss) this.renderer.forceContextLoss();
+};
+
+/* ====== Data produk ====== */
+var PRODUCTS = [
+  {id:'p1', nama:'Kawung Nila', kat:'Kain', pola:'kawung', pal:'nila', harga:485000, teknik:'Batik tulis', kota:'Yogyakarta', penjual:'Griya Batik Ningrat', ukuran:'250 x 110 cm', bahan:'Katun primissima', desc:'Kain panjang dengan kawung besar di atas nila pekat. Cocok untuk kebaya, jarik, atau dipigura.'},
+  {id:'p2', nama:'Parang Soga', kat:'Pakaian', pola:'parang', pal:'soga', harga:375000, teknik:'Batik cap', kota:'Solo', penjual:'Laweyan Pak Darsono', ukuran:'S sampai XXL', bahan:'Katun', desc:'Kemeja lengan panjang dengan parang berwarna soga yang hangat. Potongan regular, kancing depan.'},
+  {id:'p3', nama:'Mega Mendung Cirebon', kat:'Aksesori', pola:'mendung', pal:'mendung', harga:260000, teknik:'Tulis dan cap', kota:'Cirebon', penjual:'Trusmi Warna', ukuran:'180 x 50 cm', bahan:'Katun voile', desc:'Selendang ringan dengan awan biru berlapis di atas merah tua. Nyaman untuk kondangan maupun harian.'},
+  {id:'p4', nama:'Truntum Malam', kat:'Kain', pola:'truntum', pal:'malam', harga:720000, teknik:'Batik tulis', kota:'Solo', penjual:'Griya Canting Sari', ukuran:'240 x 105 cm', bahan:'Katun primissima', desc:'Bintang emas kecil di atas latar hitam kecokelatan. Dikerjakan halus, satu kain sekitar tiga minggu.'},
+  {id:'p5', nama:'Kembang Lasem', kat:'Pakaian', pola:'lasem', pal:'lasem', harga:540000, teknik:'Batik tulis', kota:'Lasem', penjual:'Sanggar Merah Lasem', ukuran:'S sampai XL', bahan:'Katun', desc:'Dress midi dengan bunga merah dan sulur nila. Jatuhnya lembut, ada saku di kedua sisi.'},
+  {id:'p6', nama:'Tote Kawung Soga', kat:'Aksesori', pola:'kawung', pal:'soga', harga:185000, teknik:'Batik cap', kota:'Pekalongan', penjual:'Pesisir Kriya', ukuran:'38 x 40 cm', bahan:'Kanvas berlapis', desc:'Tas tote kokoh dengan panel kawung soga. Muat laptop 14 inci dan dilengkapi kantong dalam.'}
+];
+var userProds = store.get('sw_user', []);
+if(Array.isArray(userProds)) userProds.forEach(function(u){ if(u && MOTIF[u.pola] && PAL[u.pal]) PRODUCTS.unshift(u); });
+function byId(id){ for(var i=0;i<PRODUCTS.length;i++) if(PRODUCTS[i].id === id) return PRODUCTS[i]; return null; }
+function saveUser(){
+  store.set('sw_user', PRODUCTS.filter(function(p){ return p.id.charAt(0) === 'u'; }));
+}
+
+/* ====== Toast dan lapisan ====== */
+var toastEl = $('#toast'), toastTimer = null;
+function toast(msg, actionLabel, fn){
+  toastEl.innerHTML = '<span></span>';
+  toastEl.firstChild.textContent = msg;
+  if(actionLabel){
+    var b = document.createElement('button'); b.type = 'button'; b.textContent = actionLabel;
+    b.addEventListener('click', function(){ toastEl.classList.remove('on'); fn && fn(); });
+    toastEl.appendChild(b);
+  }
+  toastEl.classList.add('on');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){ toastEl.classList.remove('on'); }, 4200);
+}
+
+var openL = null, lastFocus = null;
+function openLayer(ov, focusSel){
+  lastFocus = document.activeElement;
+  ov.hidden = false; document.body.style.overflow = 'hidden'; openL = ov;
+  var f = $(focusSel, ov); if(f) f.focus();
+}
+function closeLayer(){
+  if(!openL) return;
+  var ov = openL; openL = null;
+  ov.hidden = true; document.body.style.overflow = '';
+  ov.dispatchEvent(new Event('closed'));
+  if(lastFocus && lastFocus.focus) lastFocus.focus();
+}
+document.addEventListener('keydown', function(e){
+  if(!openL) return;
+  if(e.key === 'Escape'){ closeLayer(); return; }
+  if(e.key !== 'Tab') return;
+  var f = Array.prototype.filter.call(openL.querySelectorAll('a[href],button:not([disabled]),input,select,textarea'), function(el){ return el.offsetParent !== null; });
+  if(!f.length) return;
+  var first = f[0], last = f[f.length-1];
+  if(e.shiftKey && document.activeElement === first){ last.focus(); e.preventDefault(); }
+  else if(!e.shiftKey && document.activeElement === last){ first.focus(); e.preventDefault(); }
+});
+Array.prototype.forEach.call(document.querySelectorAll('.overlay'), function(ov){
+  ov.addEventListener('mousedown', function(e){ if(e.target === ov) closeLayer(); });
+  ov.addEventListener('click', function(e){ if(e.target.closest('[data-close]')) closeLayer(); });
+});
+
+/* ====== Keranjang ====== */
+var cart = store.get('sw_cart', []);
+if(!Array.isArray(cart)) cart = [];
+cart = cart.filter(function(c){ return c && byId(c.id) && c.qty > 0; });
+function saveCart(){ store.set('sw_cart', cart); }
+function cartQty(){ return cart.reduce(function(n,c){ return n + c.qty; }, 0); }
+function cartTotal(){ return cart.reduce(function(n,c){ return n + byId(c.id).harga*c.qty; }, 0); }
+
+function addCart(id){
+  var it = null; cart.forEach(function(c){ if(c.id === id) it = c; });
+  if(it) it.qty++; else cart.push({id:id, qty:1});
+  saveCart(); renderCart();
+  var cnt = $('#cartCount'); cnt.classList.remove('bump'); void cnt.offsetWidth; cnt.classList.add('bump');
+  toast(byId(id).nama + ' masuk keranjang', 'Buka keranjang', openCart);
+}
+function renderCart(){
+  var q = cartQty();
+  $('#cartCount').textContent = q;
+  $('#cartBtn').setAttribute('aria-label', q ? 'Buka keranjang, ' + q + ' barang' : 'Buka keranjang, kosong');
+  var body = $('#cartBody'), foot = $('#cartFoot');
+  body.innerHTML = '';
+  if(!cart.length){
+    foot.hidden = true;
+    body.innerHTML = '<div class="cart-empty"><p>Keranjang masih kosong. Pilih batik dari koleksi.</p><button class="btn btn-main" type="button" id="toKoleksi">Lihat koleksi</button></div>';
+    $('#toKoleksi').addEventListener('click', function(){ closeLayer(); location.hash = '#koleksi'; });
+    return;
+  }
+  foot.hidden = false;
+  var lines = [];
+  cart.forEach(function(c){
+    var p = byId(c.id);
+    var row = document.createElement('div'); row.className = 'cart-item';
+    var cv = document.createElement('canvas'); cv.width = 128; cv.height = 160; drawTo(cv, getPaint(p.pola, p.pal, 480, 600, false));
+    var info = document.createElement('div');
+    info.innerHTML = '<h4>' + esc(p.nama) + '</h4><div class="sub">' + esc(p.kat) + ', ' + esc(p.kota) + '</div><div class="price">' + rp(p.harga*c.qty) + '</div>' +
+      '<div class="qty"><button type="button" data-act="dec" data-id="' + p.id + '" aria-label="Kurangi ' + esc(p.nama) + '">&minus;</button><span aria-live="polite">' + c.qty + '</span><button type="button" data-act="inc" data-id="' + p.id + '" aria-label="Tambah ' + esc(p.nama) + '">+</button><button type="button" class="rm" data-act="rm" data-id="' + p.id + '">Hapus</button></div>';
+    row.appendChild(cv); row.appendChild(info); body.appendChild(row);
+    lines.push('- ' + p.nama + ' x' + c.qty + ' (' + rp(p.harga*c.qty) + ')');
+  });
+  $('#cartTotal').textContent = rp(cartTotal());
+  var msg = 'Halo Sekar Wastra, saya ingin memesan:\n' + lines.join('\n') + '\nTotal: ' + rp(cartTotal()) + '\nMohon info ongkir dan cara pembayaran. Terima kasih.';
+  $('#checkout').href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
+}
+$('#cartBody').addEventListener('click', function(e){
+  var b = e.target.closest('[data-act]'); if(!b) return;
+  var id = b.dataset.id, act = b.dataset.act;
+  cart.forEach(function(c){ if(c.id === id){ if(act === 'inc') c.qty++; if(act === 'dec') c.qty--; if(act === 'rm') c.qty = 0; } });
+  cart = cart.filter(function(c){ return c.qty > 0; });
+  saveCart(); renderCart();
+});
+function openCart(){ renderCart(); openLayer($('#cartOv'), '.close'); }
+$('#cartBtn').addEventListener('click', openCart);
+
+/* ====== Koleksi ====== */
+var state = {cat:'Semua', sort:'pilihan'};
+var grid = $('#grid');
+function renderGrid(){
+  var list = PRODUCTS.filter(function(p){ return state.cat === 'Semua' || p.kat === state.cat; });
+  if(state.sort === 'murah') list = list.slice().sort(function(a,b){ return a.harga - b.harga; });
+  if(state.sort === 'mahal') list = list.slice().sort(function(a,b){ return b.harga - a.harga; });
+  grid.innerHTML = '';
+  $('#countNote').textContent = list.length + ' batik ditampilkan';
+  if(!list.length){ grid.innerHTML = '<p class="empty">Belum ada batik di kategori ini. Jadilah yang pertama menjual di bagian Jual batik.</p>'; return; }
+  list.forEach(function(p){
+    var art = document.createElement('article'); art.className = 'tile';
+    var mine = p.id.charAt(0) === 'u';
+    art.innerHTML =
+      '<button class="tile-view" type="button" data-id="' + p.id + '" aria-label="Lihat ' + esc(p.nama) + ' dalam 3D">' +
+        '<span class="tilt">' + (mine ? '<span class="badge">Baru dari penjual</span>' : '') + '</span>' +
+        '<span class="tile-name">' + esc(p.nama) + '</span>' +
+        '<span class="tile-sub">' + esc(p.kat) + ', ' + esc(p.kota) + '</span>' +
+      '</button>' +
+      '<div class="tile-foot"><span class="price">' + rp(p.harga) + '</span>' +
+      '<span><button class="btn btn-line btn-sm" type="button" data-add="' + p.id + '">Masukkan keranjang</button>' +
+      (mine ? ' <button class="btn btn-line btn-sm" type="button" data-del="' + p.id + '" aria-label="Hapus ' + esc(p.nama) + ' dari koleksi">Hapus</button>' : '') + '</span></div>';
+    var cv = document.createElement('canvas'); cv.width = 480; cv.height = 600;
+    drawTo(cv, getPaint(p.pola, p.pal, 480, 600, false));
+    art.querySelector('.tilt').appendChild(cv);
+    grid.appendChild(art);
+  });
+}
+grid.addEventListener('click', function(e){
+  var a = e.target.closest('[data-add]'); if(a){ addCart(a.dataset.add); return; }
+  var d = e.target.closest('[data-del]');
+  if(d){
+    var id = d.dataset.del;
+    PRODUCTS = PRODUCTS.filter(function(p){ return p.id !== id; });
+    cart = cart.filter(function(c){ return c.id !== id; });
+    saveUser(); saveCart(); renderCart(); renderGrid(); toast('Batik dihapus dari koleksi'); return;
+  }
+  var v = e.target.closest('.tile-view'); if(v) openProduct(v.dataset.id);
+});
+grid.addEventListener('pointermove', function(e){
+  var t = e.target.closest('.tilt'); if(!t || e.pointerType !== 'mouse' || RM) return;
+  var b = t.getBoundingClientRect(), x = (e.clientX - b.left)/b.width, y = (e.clientY - b.top)/b.height;
+  t.style.setProperty('--mx', (x*100) + '%'); t.style.setProperty('--my', (y*100) + '%');
+  t.style.transform = 'perspective(700px) rotateY(' + ((x-0.5)*16) + 'deg) rotateX(' + ((0.5-y)*12) + 'deg) scale(1.03)';
+});
+grid.addEventListener('pointerout', function(e){
+  var t = e.target.closest('.tilt'); if(t && !t.contains(e.relatedTarget)) t.style.transform = '';
+});
+$('#chips').addEventListener('click', function(e){
+  var b = e.target.closest('.chip'); if(!b) return;
+  state.cat = b.dataset.cat;
+  Array.prototype.forEach.call($('#chips').children, function(c){ c.setAttribute('aria-pressed', c === b ? 'true' : 'false'); });
+  renderGrid();
+});
+$('#sort').addEventListener('change', function(e){ state.sort = e.target.value; renderGrid(); });
+
+/* ====== Detail produk (kain 3D) ====== */
+var modalCloth = null, currentId = null;
+function openProduct(id){
+  var p = byId(id); if(!p) return;
+  currentId = id;
+  $('#pmName').textContent = p.nama;
+  $('#pmSeller').textContent = 'Dijual oleh ' + p.penjual + ', ' + p.kota;
+  $('#pmPrice').textContent = rp(p.harga);
+  $('#pmDesc').textContent = p.desc;
+  $('#pmSpecs').innerHTML =
+    '<dt>Jenis</dt><dd>' + esc(p.kat) + '</dd><dt>Motif</dt><dd>' + esc(MOTIF[p.pola].nama) + '</dd>' +
+    '<dt>Teknik</dt><dd>' + esc(p.teknik) + '</dd><dt>Bahan</dt><dd>' + esc(p.bahan) + '</dd><dt>Ukuran</dt><dd>' + esc(p.ukuran) + '</dd>';
+  $('#pmAsk').href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent('Halo ' + p.penjual + ', saya tertarik dengan ' + p.nama + ' (' + rp(p.harga) + ') di Sekar Wastra. Apakah masih tersedia?');
+  $('#windRange').value = 1;
+  var stage = $('#modalStage');
+  var old = $('canvas', stage); if(old) old.remove();
+  var cv = document.createElement('canvas');
+  cv.setAttribute('role', 'img'); cv.setAttribute('aria-label', 'Kain ' + p.nama + ' dalam 3D. Seret untuk memutar.');
+  stage.insertBefore(cv, stage.firstChild);
+  openLayer($('#productOv'), '.close');
+  try{
+    modalCloth = new Cloth(cv, {unfurlTime:1.1});
+    modalCloth.setTexture(clothTex(p.pola, p.pal));
+    modalCloth.start();
+  }catch(err){
+    modalCloth = null;
+    var fb = document.createElement('canvas'); fb.width = 512; fb.height = 672; fb.className = 'fallback-cloth';
+    drawTo(fb, clothTex(p.pola, p.pal)); cv.replaceWith(fb);
+  }
+}
+$('#productOv').addEventListener('closed', function(){
+  if(modalCloth){ modalCloth.dispose(); modalCloth = null; }
+});
+$('#windRange').addEventListener('input', function(e){ if(modalCloth) modalCloth.wind = parseFloat(e.target.value); });
+$('#pmAdd').addEventListener('click', function(){ if(currentId) addCart(currentId); });
+
+/* ====== Hero ====== */
+var heroCloth = null, heroKey = 'kawung';
+var pick = $('#motifPick');
+Object.keys(MOTIF).forEach(function(k){
+  var b = document.createElement('button'); b.type = 'button'; b.dataset.k = k;
+  b.setAttribute('aria-label', 'Motif ' + MOTIF[k].nama); b.title = MOTIF[k].nama;
+  var c = document.createElement('canvas'); c.width = 92; c.height = 116; drawTo(c, getPaint(k, MOTIF[k].pal, 480, 600, false));
+  b.appendChild(c); pick.appendChild(b);
+});
+function setHero(k, instant){
+  heroKey = k;
+  Array.prototype.forEach.call(pick.children, function(b){ b.setAttribute('aria-pressed', b.dataset.k === k ? 'true' : 'false'); });
+  var note = $('#motifNote'); note.innerHTML = '<strong></strong><span></span>';
+  note.firstChild.textContent = MOTIF[k].nama; note.lastChild.textContent = MOTIF[k].arti;
+  if(heroCloth){ if(instant) heroCloth.setTexture(clothTex(k)); else heroCloth.swap(clothTex(k)); }
+}
+pick.addEventListener('click', function(e){ var b = e.target.closest('button'); if(b) setHero(b.dataset.k); });
+try{
+  heroCloth = new Cloth($('#heroCanvas'), {hover:true, unfurlTime:2.2, pointerEl:$('#stage'), onInteract:function(){ $('#stage').classList.add('used'); }});
+  heroCloth.setTexture(clothTex(heroKey));
+  heroCloth.start();
+}catch(err){
+  heroCloth = null;
+  var st = $('#stage'); st.innerHTML = '';
+  var fb = document.createElement('canvas'); fb.width = 512; fb.height = 672; fb.className = 'fallback-cloth';
+  drawTo(fb, clothTex(heroKey)); st.appendChild(fb);
+}
+setHero(heroKey, true);
+
+/* ====== Daftar motif ====== */
+var mlist = $('#motifList');
+Object.keys(MOTIF).forEach(function(k){
+  var li = document.createElement('li'); li.className = 'motif-row';
+  var c = document.createElement('canvas'); c.width = 192; c.height = 240; drawTo(c, getPaint(k, MOTIF[k].pal, 480, 600, false));
+  c.setAttribute('role', 'img'); c.setAttribute('aria-label', 'Contoh motif ' + MOTIF[k].nama);
+  var d = document.createElement('div');
+  d.innerHTML = '<h3></h3><p></p>'; d.firstChild.textContent = MOTIF[k].nama; d.lastChild.textContent = MOTIF[k].arti;
+  var b = document.createElement('button'); b.type = 'button'; b.className = 'btn btn-line'; b.textContent = 'Lihat di kain 3D';
+  b.addEventListener('click', function(){
+    setHero(k);
+    $('#atas').scrollIntoView({behavior: RM ? 'auto' : 'smooth'});
+  });
+  li.appendChild(c); li.appendChild(d); li.appendChild(b); mlist.appendChild(li);
+});
+
+/* ====== Formulir jual ====== */
+var fPola = $('#fPola');
+Object.keys(MOTIF).forEach(function(k){ var o = document.createElement('option'); o.value = k; o.textContent = MOTIF[k].nama; fPola.appendChild(o); });
+function updatePreview(){ var k = fPola.value; drawTo($('#prevCanvas'), getPaint(k, MOTIF[k].pal, 480, 600, false)); }
+fPola.addEventListener('change', updatePreview);
+updatePreview();
+$('#sellForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var f = new FormData(this);
+  var harga = parseInt(f.get('harga'), 10);
+  if(!(harga >= 10000)) return;
+  var k = f.get('pola'), toko = String(f.get('toko')).trim();
+  var p = {
+    id:'u' + Date.now().toString(36), nama:String(f.get('nama')).trim(), kat:f.get('kat'), pola:k, pal:MOTIF[k].pal, harga:harga,
+    teknik:f.get('teknik'), kota:String(f.get('kota')).trim(), penjual:toko, ukuran:'Tanyakan ke penjual', bahan:'Tanyakan ke penjual',
+    desc:String(f.get('desc')).trim() || ('Batik ' + MOTIF[k].nama + ' dari ' + toko + '.')
+  };
+  PRODUCTS.unshift(p); saveUser();
+  state.cat = 'Semua';
+  Array.prototype.forEach.call($('#chips').children, function(c){ c.setAttribute('aria-pressed', c.dataset.cat === 'Semua' ? 'true' : 'false'); });
+  renderGrid(); this.reset(); updatePreview();
+  toast(p.nama + ' sudah tampil di koleksi', 'Lihat koleksi', function(){ $('#koleksi').scrollIntoView({behavior: RM ? 'auto' : 'smooth'}); });
+});
+
+/* ====== Mulai ====== */
+renderGrid();
+renderCart();
+})();
+</script>
+</body>
+</html>
